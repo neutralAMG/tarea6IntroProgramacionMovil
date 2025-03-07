@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>About</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,7 +10,67 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">About</ion-title>
+      <ion-title size="large">Hire Me</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="profile-container">
+    <ion-card class="profile-card">
+      <!-- Profile Image -->
+      <img
+        alt="Profile Picture"
+        src="assets/Picture2.png"
+        class="profile-image"
+      />
+
+      <!-- Profile Header -->
+      <ion-card-header>
+        <ion-card-title class="name-text"
+          >Alejandro Moscoso (2023-0191)</ion-card-title
+        >
+        <ion-card-subtitle class="email-text"
+          >amoscoso698&#64;gmail.com</ion-card-subtitle
+        >
+      </ion-card-header>
+
+      <!-- Profile Content -->
+      <ion-card-content class="task-text">
+        <ion-label>Tarea 5: Introducción a la programación web</ion-label>
+        <br />
+
+        <!-- Additional Information -->
+        <div class="bio-section">
+          <ion-label>
+            <strong>Short Bio:</strong>
+            A passionate backend developer focusing on .NET technologies.
+            Currently learning microservices, Docker, and Kubernetes to expand
+            my skill set.
+          </ion-label>
+        </div>
+
+        <div class="skills-section">
+          <ion-label>
+            <strong>Skills:</strong>
+            C#, ASP.NET, JavaScript, Node.js, Docker, Kubernetes, REST APIs,
+            SQL, Git
+          </ion-label>
+        </div>
+
+        <div class="projects-section">
+          <ion-label>
+            <strong>Projects:</strong>
+            - *Internet Banking App* (2024) - *Stormlight Archive Character
+            Database* (2025)
+          </ion-label>
+        </div>
+
+        <div class="contact-section">
+          <ion-label>
+            <strong>Contact:</strong>
+            <a href="mailto:amoscoso698@gmail.com">amoscoso698&#64;gmail.com</a>
+          </ion-label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

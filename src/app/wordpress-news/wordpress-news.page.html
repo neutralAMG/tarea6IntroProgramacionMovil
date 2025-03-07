@@ -1,13 +1,43 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>WordpressNews</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Últimas Noticias</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">WordpressNews</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- Mostrar el logo del sitio -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Logo del Sitio</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="siteLogo" alt="Logo del Sitio" *ngIf="siteLogo" />
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mostrar las últimas 3 noticias -->
+  <ion-list>
+    <ion-item *ngFor="let article of news">
+      <ion-label>
+        <h2>{{ article.title.rendered }}</h2>
+        <p>{{ article.excerpt.rendered | slice:0:150 }}...</p>
+        <ion-button href="{{ article.link }}" target="_blank" expand="full"
+          >Visitar Noticia</ion-button
+        >
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensaje en caso de error o no hay noticias -->
+  <ion-card *ngIf="!news.length">
+    <ion-card-header>
+      <ion-card-title>No hay noticias disponibles</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>No se pudieron cargar las noticias.</ion-label>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

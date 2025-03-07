@@ -18,8 +18,10 @@ export class AppComponent {
     { title: 'name-to-gender', url: '/name-to-gender', icon: 'paper-plane' },
     { title: 'name-to-age', url: '/name-to-age', icon: 'heart' },
     { title: 'name-to-univerities', url: '/name-to-univerities', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'weather', url: '/weather', icon: 'trash' },
+    { title: 'pokemon', url: '/pokemon', icon: 'warning' },
+    { title: 'wordpress-news', url: '/wordpress-news', icon: 'heart' },
+    { title: 'about', url: '/about', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {
