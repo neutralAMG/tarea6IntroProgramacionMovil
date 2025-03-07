@@ -15,7 +15,7 @@ import { Inject } from '@angular/core';
 export class WordpressNewsPage implements OnInit {
   siteLogo: string = '';
   news: any[] = [];
-  apiUrl: string = 'https://kinsta.com/wp-json/wp/v2/posts?per_page=3';
+  apiUrl: string = 'https://usainbolt.com/wp-json/wp/v2/posts?per_page=3';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -25,7 +25,7 @@ export class WordpressNewsPage implements OnInit {
 
   getNewsData(): void {
     // Obtener las últimas 3 publicaciones y el logo del sitio
-    this.httpClient.get('https://kinsta.com/wp-json/wp/v2/settings').subscribe({
+    this.httpClient.get('https://usainbolt.com/wp-json/wp/v2/settings').subscribe({
       next: (result: any) => {
         this.siteLogo = result.logo; // URL del logo del sitio
       },
