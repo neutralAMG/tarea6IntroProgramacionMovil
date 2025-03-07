@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>nameToAge</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">nameToAge</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="calc-card">
+    <ion-card-header>
+      <ion-card-title>Enter the name</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input type="text" [formControl]="Name"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <div class="button-group">
+        <ion-button expand="full" (click)="getAge()" color="success">
+          Get age
+        </ion-button>
+      </div>
+
+      <ion-item class="result-item" *ngIf="Result !== null">
+        <ion-label>Result: <strong>{{ Result }}</strong></ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
