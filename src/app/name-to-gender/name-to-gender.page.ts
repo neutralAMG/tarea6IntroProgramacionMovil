@@ -23,7 +23,7 @@ export class NameToGenderPage implements OnInit {
   ngOnInit() {
   }
 
-  getName(): void{
+  getGender(): void{
 
     this.httpClient.get<apiResult>("https://api.genderize.io"
     ,{params:{name: this.Name.value ?? ""}})

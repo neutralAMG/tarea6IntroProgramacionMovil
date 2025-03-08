@@ -1,0 +1,72 @@
+
+  .container{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+  }
+  .input-card {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fetch-button {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: #3b4cca;
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .fetch-button:active {
+    transform: scale(0.95);
+  }
+  
+  .pokemon-card, .no-data-card {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .card-header {
+    background: #3b4cca;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .image-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ability-item {    
+    font-size: 1.1em;
+    padding: 8px;
+  }
+  
+  .no-data-card {
+    background: #ff3b30;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  }
+  

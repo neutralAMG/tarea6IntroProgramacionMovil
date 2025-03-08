@@ -3,57 +3,72 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Pokemon Info</ion-title>
+    <ion-title>Pokémon Info</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item>
-    <ion-label position="floating">Pokemon Name</ion-label>
-    <ion-input
-      [(ngModel)]="pokemonName"
-      placeholder="Enter Pokémon name"
-    ></ion-input>
-  </ion-item>
-
-  <ion-button expand="full" (click)="getPokemonData()"
-    >Get Pokémon Data</ion-button
-  >
-
-  <ion-card *ngIf="pokemonData">
-    <ion-card-header>
-      <ion-card-title>{{ pokemonData.name | titlecase }}</ion-card-title>
-      <ion-card-subtitle
-        >Base Experience: {{ pokemonData.base_experience }}</ion-card-subtitle
-      >
-    </ion-card-header>
-
-    <ion-card-content>
-      <img
-        [src]="pokemonData.sprites.front_default"
-        alt="{{ pokemonData.name }}"
-      />
-
-      <ion-item>
-        <ion-label><strong>Abilities:</strong></ion-label>
-      </ion-item>
-      <ion-list>
-        <ion-item *ngFor="let ability of pokemonData.abilities">
-          <ion-label>{{ ability.ability.name | titlecase }}</ion-label>
+<ion-content class="pokemon-content">
+  <div class="container">
+    <ion-card class="input-card">
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Pokémon Name</ion-label>
+          <ion-input
+            [(ngModel)]="pokemonName"
+            placeholder="Enter Pokémon name"
+          ></ion-input>
         </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
 
-  <ion-card *ngIf="!pokemonData">
-    <ion-card-header>
-      <ion-card-title>Pokémon Information</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label
-        >No Pokémon data available. Try again with a valid Pokémon
-        name.</ion-label
-      >
-    </ion-card-content>
-  </ion-card>
+        <ion-button
+          expand="full"
+          class="fetch-button"
+          (click)="getPokemonData()"
+        >
+          Get Pokémon Data
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="pokemon-card" *ngIf="pokemonData">
+      <ion-card-header class="card-header">
+        <ion-card-title>{{ pokemonData.name | titlecase }}</ion-card-title>
+        <ion-card-subtitle
+          >Base Experience: {{ pokemonData.base_experience }}</ion-card-subtitle
+        >
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="image-container">
+          <img
+            [src]="pokemonData.sprites.front_default"
+            alt="{{ pokemonData.name }}"
+          />
+        </div>
+
+        <ion-item>
+          <ion-label><strong>Abilities:</strong></ion-label>
+        </ion-item>
+        <ion-list>
+          <ion-item
+            *ngFor="let ability of pokemonData.abilities"
+            class="ability-item"
+          >
+            <ion-label>{{ ability.ability.name | titlecase }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="no-data-card" *ngIf="!pokemonData">
+      <ion-card-header class="card-header">
+        <ion-card-title>⚠ Pokémon Information</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label
+          >No Pokémon data available. Try again with a valid Pokémon
+          name.</ion-label
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

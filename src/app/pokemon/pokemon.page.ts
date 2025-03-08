@@ -14,12 +14,14 @@ import { Inject } from '@angular/core';
 })
 export class PokemonPage implements OnInit {
   pokemonData: any = null;
-  pokemonName: string = '';
+  pokemonName: string = 'lucario';
   url: string = 'https://pokeapi.co/api/v2/pokemon/';
 
   constructor(private httpClient: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getPokemonData()
+  }
 
   getPokemonData(): void {
     const fullUrl = `${this.url}${this.pokemonName.toLowerCase()}`;

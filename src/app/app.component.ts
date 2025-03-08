@@ -14,16 +14,15 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'name-to-gender', url: '/name-to-gender', icon: 'paper-plane' },
-    { title: 'name-to-age', url: '/name-to-age', icon: 'heart' },
-    { title: 'name-to-univerities', url: '/name-to-univerities', icon: 'archive' },
-    { title: 'weather', url: '/weather', icon: 'trash' },
-    { title: 'pokemon', url: '/pokemon', icon: 'warning' },
-    { title: 'wordpress-news', url: '/wordpress-news', icon: 'heart' },
-    { title: 'about', url: '/about', icon: 'warning' },
+    { title: 'Home', url: '/folder/inbox', icon: 'mail' },
+    { title: 'Name to gender', url: '/name-to-gender', icon: 'paper-plane' },
+    { title: 'Name to age', url: '/name-to-age', icon: 'heart' },
+    { title: 'Name to univerities', url: '/name-to-univerities', icon: 'archive' },
+    { title: 'Weather', url: '/weather', icon: 'trash' },
+    { title: 'Pokemon', url: '/pokemon', icon: 'warning' },
+    { title: 'Wordpress news', url: '/wordpress-news', icon: 'heart' },
+    { title: 'About', url: '/about', icon: 'warning' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {
     addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }

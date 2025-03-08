@@ -3,41 +3,46 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Últimas Noticias</ion-title>
+    <ion-title>📰 Últimas Noticias</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Mostrar el logo del sitio -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Logo del Sitio</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <img src="assets/logo.png" alt="Logo del Sitio" />
+<div class="news-content">
+  <!-- Logo del sitio -->
+  <ion-card class="logo-card">
+    <ion-card-content class="logo-container">
+      <img src="assets/logo.png" alt="Logo del Sitio" class="logo-image" />
     </ion-card-content>
   </ion-card>
 
-  <!-- Mostrar las últimas 3 noticias -->
-  <ion-list>
-    <ion-item *ngFor="let article of news">
-      <ion-label>
-        <h2>{{ article.title.rendered }}</h2>
-        <p>{{ article.excerpt.rendered | slice:0:150 }}...</p>
-        <ion-button href="{{ article.link }}" target="_blank" expand="full"
-          >Visitar Noticia</ion-button
+  <ion-list class="container">
+    <ion-card class="news-card" *ngFor="let article of news">
+      <ion-card-header>
+        <ion-card-title>{{ article.title.rendered }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p [innerHTML]="article.excerpt.rendered | slice:0:150"></p>
+        <ion-button
+          class="news-button"
+          [href]="article.link"
+          target="_blank"
+          expand="full"
         >
-      </ion-label>
-    </ion-item>
+          Leer más
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 
-  <!-- Mensaje en caso de error o no hay noticias -->
-  <ion-card *ngIf="!news.length">
+  <ion-card class="no-news-card" *ngIf="!news.length">
     <ion-card-header>
-      <ion-card-title>No hay noticias disponibles</ion-card-title>
+      <ion-card-title>⚠ No hay noticias disponibles</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-label>No se pudieron cargar las noticias.</ion-label>
+      <ion-label
+        >No se pudieron cargar las noticias. Intenta nuevamente más
+        tarde.</ion-label
+      >
     </ion-card-content>
   </ion-card>
-</ion-content>
+</div>

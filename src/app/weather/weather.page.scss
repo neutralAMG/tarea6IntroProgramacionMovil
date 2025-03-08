@@ -1,0 +1,40 @@
+.weather-content {
+
+    padding: 20px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+  }
+  .container{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .weather-card, .no-data-card {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card-header {
+    background: #007aff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+  }
+  
+
+  .no-data-card {
+    background: #ff3b30;
+    color: white;
+    text-align: center;
+  }
+  
+  .no-data-card ion-card-content {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  

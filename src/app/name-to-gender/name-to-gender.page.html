@@ -1,41 +1,59 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="header-toolbar">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>NameToGender</ion-title>
+    <ion-title>Name to gender convertor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">NameToGender</ion-title>
+      <ion-title size="large" class="header-title">NameToAge</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card class="calc-card">
-    <ion-card-header>
-      <ion-card-title>Enter the name</ion-card-title>
-    </ion-card-header>
+  <div class="container">
+    <ion-card class="calc-card">
+      <ion-card-header>
+        <ion-card-title>Enter the Name</ion-card-title>
+      </ion-card-header>
 
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-label position="stacked">Name</ion-label>
-          <ion-input type="text" [formControl]="Name"></ion-input>
+      <ion-card-content>
+        <ion-list>
+          <ion-item class="input-item">
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input type="text" [formControl]="Name"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <div class="button-group">
+          <ion-button
+            expand="full"
+            (click)="getGender()"
+            color="success"
+            class="custom-button"
+          >
+            Get Gender
+          </ion-button>
+        </div>
+
+        <ion-item class="result-item" *ngIf="Result !== null">
+          <ion-label *ngIf="Result === 'male'"
+            >Result:
+            <strong style="color: rgb(38, 38, 194)"
+              >{{ Result }}</strong
+            ></ion-label
+          >
+          <ion-label *ngIf="Result === 'female'"
+            >Result:
+            <strong style="color: rgb(230, 171, 181)"
+              >{{ Result }}</strong
+            ></ion-label
+          >
         </ion-item>
-      </ion-list>
-
-      <div class="button-group">
-        <ion-button expand="full" (click)="getName()" color="success">
-          Get gender
-        </ion-button>
-      </div>
-
-      <ion-item class="result-item" *ngIf="Result !== null">
-        <ion-label>Result: <strong>{{ Result }}</strong></ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

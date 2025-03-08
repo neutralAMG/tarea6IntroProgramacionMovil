@@ -1,75 +1,89 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="header-toolbar">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>nameToUniverities</ion-title>
+    <ion-title>Countries universities</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">nameToUniverities</ion-title>
+      <ion-title size="large" class="header-title"
+        >NameToUniversities</ion-title
+      >
     </ion-toolbar>
   </ion-header>
-  <ion-card class="calc-card">
-    <ion-card-header>
-      <ion-card-title>Enter the name</ion-card-title>
-    </ion-card-header>
 
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-label position="stacked">Name</ion-label>
-          <ion-input type="text" [formControl]="Name"></ion-input>
-        </ion-item>
-      </ion-list>
+  <div class="container">
+    <ion-card class="calc-card">
+      <ion-card-header>
+        <ion-card-title>Enter the Name</ion-card-title>
+      </ion-card-header>
 
-      <div class="button-group">
-        <ion-button expand="full" (click)="getUniversities()" color="success">
-          Get universities
-        </ion-button>
-      </div>
+      <ion-card-content>
+        <ion-list>
+          <ion-item class="input-item">
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input type="text" [formControl]="Name"></ion-input>
+          </ion-item>
+        </ion-list>
 
-      <ion-item class="result-item" *ngFor="let apiResult of Result">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>{{ apiResult.name }}</ion-card-title>
-            <ion-label>
-              {{ apiResult.country }} ({{ apiResult.alpha_two_code }})
-            </ion-label>
-          </ion-card-header>
+        <div class="button-group">
+          <ion-button
+            expand="full"
+            (click)="getUniversities()"
+            color="success"
+            class="custom-button"
+          >
+            Get Universities
+          </ion-button>
+        </div>
 
-          <ion-card-content>
-            <ion-item *ngIf="apiResult.province">
-              <ion-label
-                ><strong>Province:</strong> {{ apiResult.province }}</ion-label
+        <div class="results">
+          <ion-card class="university-card" *ngFor="let apiResult of Result">
+            <ion-card-header>
+              <ion-card-title>{{ apiResult.name }}</ion-card-title>
+              <ion-label class="country-label">
+                {{ apiResult.country }} ({{ apiResult.alpha_two_code }})
+              </ion-label>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-item *ngIf="apiResult.province" class="info-item">
+                <ion-label
+                  ><strong>Province:</strong> {{ apiResult.province
+                  }}</ion-label
+                >
+              </ion-item>
+
+              <ion-item *ngIf="apiResult.domains.length > 0" class="info-item">
+                <ion-label><strong>Domains:</strong></ion-label>
+                <ion-list>
+                  <ion-item *ngFor="let domain of apiResult.domains">
+                    <ion-label>{{ domain }}</ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-item>
+
+              <ion-item
+                *ngIf="apiResult.web_pages.length > 0"
+                class="info-item"
               >
-            </ion-item>
-
-            <ion-item *ngIf="apiResult.domains.length > 0">
-              <ion-label><strong>Domains:</strong></ion-label>
-              <ion-list>
-                <ion-item *ngFor="let domain of apiResult.domains">
-                  <ion-label>{{ domain }}</ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-item>
-
-            <ion-item *ngIf="apiResult.web_pages.length > 0">
-              <ion-label><strong>Web Pages:</strong></ion-label>
-              <ion-list>
-                <ion-item *ngFor="let web of apiResult.web_pages">
-                  <ion-label
-                    ><a [href]="web" target="_blank">{{ web }}</a></ion-label
-                  >
-                </ion-item>
-              </ion-list>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+                <ion-label><strong>Web Pages:</strong></ion-label>
+                <ion-list>
+                  <ion-item *ngFor="let web of apiResult.web_pages">
+                    <ion-label>
+                      <a [href]="web" target="_blank" class="link">{{ web }}</a>
+                    </ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
